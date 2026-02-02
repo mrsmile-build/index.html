@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Logistics - Fast & Reliable Delivery Services Nigeria</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4ECDC4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+            color: white;
+            padding: 140px 20px 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #4ECDC4;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #4ECDC4;
+            color: #0F2027;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.6);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 20px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: #4ECDC4;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #0F2027;
+        }
+
+        .services-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid #4ECDC4;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #0F2027;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Coverage Section */
+        .coverage {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .coverage h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #0F2027;
+        }
+
+        .coverage-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .coverage-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .coverage-item {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid #4ECDC4;
+        }
+
+        .coverage-item h3 {
+            font-size: 1.5rem;
+            color: #0F2027;
+            margin-bottom: 10px;
+        }
+
+        .coverage-item p {
+            color: #666;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+            color: white;
+        }
+
+        .why-choose h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #4ECDC4;
+        }
+
+        .feature-item p {
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #0F2027;
+        }
+
+        .contact p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: #25D366;
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: #0F2027;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .services h2, .coverage h2, .why-choose h2, .contact h2 {
+                font-size: 2rem;
+            }
+
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🚚 Swift Logistics</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#coverage">Coverage</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Swift Logistics</h1>
+        <p class="tagline">Your Trusted Delivery Partner Across Nigeria</p>
+        <p>Fast, reliable, and affordable delivery services for individuals and businesses. From same-day delivery to interstate transport, we move your goods safely.</p>
+        <a href="#contact" class="cta-button">Request Delivery</a>
+    </section>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>5000+</h3>
+                <p>Deliveries Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Customer Support</p>
+            </div>
+            <div class="stat-item">
+                <h3>36</h3>
+                <p>States Covered</p>
+            </div>
+            <div class="stat-item">
+                <h3>99%</h3>
+                <p>On-Time Delivery</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <p class="services-subtitle">Comprehensive logistics solutions for all your delivery needs</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Parcel Delivery</h3>
+                <p>Fast and secure delivery of packages, documents, and parcels within and between cities. Track your delivery in real-time.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Same-Day Delivery</h3>
+                <p>Urgent delivery? We've got you covered. Same-day delivery service available in major cities across Nigeria.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚛</div>
+                <h3>Interstate Transport</h3>
+                <p>Reliable movement of goods between states. We handle large shipments and ensure safe delivery nationwide.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Business Logistics</h3>
+                <p>Customized logistics solutions for SMEs and large businesses. Bulk delivery, regular routes, and dedicated support.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛍️</div>
+                <h3>E-commerce Fulfillment</h3>
+                <p>Perfect for online sellers. We handle pickup, packaging, and delivery to your customers with care.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📍</div>
+                <h3>Door-to-Door Service</h3>
+                <p>Convenient pickup from your location and delivery directly to the recipient's doorstep. No hassle, just results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="coverage" class="coverage">
+        <h2>Nationwide Coverage</h2>
+        <p class="coverage-subtitle">We deliver across Nigeria - from Lagos to Maiduguri, Port Harcourt to Kano</p>
+        <div class="coverage-grid">
+            <div class="coverage-item">
+                <h3>Lagos</h3>
+                <p>Complete coverage</p>
+            </div>
+            <div class="coverage-item">
+                <h3>Abuja</h3>
+                <p>Complete coverage</p>
+            </div>
+            <div class="coverage-item">
+                <h3>Port Harcourt</h3>
+                <p>Complete coverage</p>
+            </div>
+            <div class="coverage-item">
+                <h3>Kano</h3>
+                <p>Complete coverage</p>
+            </div>
+            <div class="coverage-item">
+                <h3>Ibadan</h3>
+                <p>Complete coverage</p>
+            </div>
+            <div class="coverage-item">
+                <h3>Benin City</h3>
+                <p>Complete coverage</p>
+            </div>
+            <div class="coverage-item">
+                <h3>Enugu</h3>
+                <p>Complete coverage</p>
+            </div>
+            <div class="coverage-item">
+                <h3>All 36 States</h3>
+                <p>Nationwide reach</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="why-choose">
+        <h2>Why Choose Swift Logistics?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3>Speed & Reliability</h3>
+                <p>We understand time is money. Our efficient network ensures your deliveries arrive on schedule, every time.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>Safety Guaranteed</h3>
+                <p>Your goods are insured and handled with maximum care. We take responsibility for safe delivery.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💰</div>
+                <h3>Affordable Pricing</h3>
+                <p>Competitive rates without compromising quality. Transparent pricing with no hidden charges.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Real-Time Tracking</h3>
+                <p>Know where your package is at all times. Get updates via SMS and WhatsApp throughout the journey.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">👨‍💼</div>
+                <h3>Professional Team</h3>
+                <p>Trained and verified delivery personnel. Courteous service from pickup to delivery.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <h3>Customer-Focused</h3>
+                <p>Your satisfaction is our priority. 24/7 customer support to address all your concerns.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Ready to Ship?</h2>
+        <p>Get your delivery moving today - fast quotes, reliable service!</p>
+        <div class="contact-info">
+            <p>📞 <strong>Phone:</strong> +234 812 753 8882</p>
+            <p>📧 <strong>Email:</strong> info@swiftlogistics.com</p>
+            <p>⏰ <strong>Hours:</strong> Mon-Sat, 7AM - 8PM</p>
+        </div>
+        <a href="https://wa.me/2348127538882?text=Hi%20Swift%20Logistics!%20I%20need%20a%20delivery%20quote" class="whatsapp-button">
+            💬 Request Quote on WhatsApp
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2026 Swift Logistics. Moving Nigeria Forward, One Delivery at a Time.</p>
+    </footer>
+</body>
+</html>
